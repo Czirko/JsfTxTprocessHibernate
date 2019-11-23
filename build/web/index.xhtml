@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandButton value="Pásztázz" action="#{mgBean.mappaScan()}"/>
+            <h:commandButton value="feltételek törlése" action="#{mgBean.listaTorol()}"/>
+
+            <br/>
+           <!-- <h:selectOneMenu value="#{mgBean.kivKibNev}" required="true">
+                <f:selectItems value="#{mgBean.kib}" />
+            </h:selectOneMenu> -->
+
+           <!-- <h:selectOneMenu value="#{mgBean.kivEv}" required="true" >
+                <f:selectItems value="#{mgBean.years}" />
+            </h:selectOneMenu> -->
+            
+            <!--<input  type="number" value="#{mgBean.kivKozlonySzam}" />-->
+
+            <h:commandButton value="Kiválaszt" action="#{mgBean.evKivalaszt()}"/>
+            
+            <p:dataTable id="table1" value="#{mgBean.tipusok}" var="kib" style="white-space: normal;"
+                         rows="1" paginator="true" tableStyle="width:auto" paginatorPosition="bottom" >
+
+                <p:column width="2px" >
+                    <f:facet name="header">
+                        Közlönyszám
+                    </f:facet>
+                    #{kib.kozlonyszam}
+                </p:column>
+
+                <p:column style="white-space: normal;"   >
+                    <f:facet name="header">
+                        Jogszabály adatok
+                    </f:facet>
+                    #{kib.jogszabalyadat}
+                </p:column>
+                
+            </p:dataTable>
+        </h:form>
+        <br />
+    </h:body>
+</html>
+
